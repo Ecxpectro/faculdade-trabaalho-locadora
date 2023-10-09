@@ -38,7 +38,7 @@ def inserir(opcao_inserir:int=0):
     if opcao_inserir == 1:                               
         novo_produto = ctrl_produto.inserir_produto()
     elif opcao_inserir == 2:
-        novo_movie_type= ctrl_movie_type.inserir_movie_type()
+        novo_movie_type= ctrl_movie_type.insert_movie_type()
     elif opcao_inserir == 3:
         novo_fornecedor = ctrl_fornecedor.inserir_fornecedor()
     elif opcao_inserir == 4:
@@ -54,8 +54,8 @@ def atualizar(opcao_atualizar:int=0):
         relatorio.get_relatorio_produtos()
         produto_atualizado = ctrl_produto.atualizar_produto()
     elif opcao_atualizar == 2:
-        relatorio.get_relatorio_clientes()
-        cliente_atualizado = ctrl_cliente.atualizar_cliente()
+        relatorio.get_movie_type_data()
+        cliente_atualizado = ctrl_movie_type.update_movie_type()
     elif opcao_atualizar == 3:
         relatorio.get_relatorio_fornecedores()
         fornecedor_atualizado = ctrl_fornecedor.atualizar_fornecedor()
