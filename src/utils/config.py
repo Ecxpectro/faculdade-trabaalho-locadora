@@ -22,6 +22,7 @@ MENU_ENTIDADES = """Entidades
 3 - FORNECEDORES
 4 - PEDIDOS
 5 - ITENS DE PEDIDOS
+6 - User
 """
 
 # Consulta de contagem de registros por tabela

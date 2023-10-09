@@ -7,6 +7,7 @@ from controller.controller_fornecedor import Controller_Fornecedor
 from controller.controller_pedido import Controller_Pedido
 from controller.controller_item_pedido import Controller_Item_Pedido
 from controller.controller_movie_type import Controller_MovieType
+from controller.controller_user import Controller_User
 tela_inicial = SplashScreen()
 relatorio = Relatorio()
 ctrl_produto = Controller_Produto()
@@ -15,6 +16,7 @@ ctrl_fornecedor = Controller_Fornecedor()
 ctrl_pedido = Controller_Pedido()
 ctrl_item_pedido = Controller_Item_Pedido()
 ctrl_movie_type = Controller_MovieType()
+ctrl_user = Controller_User()
 
 def reports(opcao_relatorio:int=0):
 
@@ -43,6 +45,8 @@ def inserir(opcao_inserir:int=0):
         novo_pedido = ctrl_pedido.inserir_pedido()
     elif opcao_inserir == 5:
         novo_item_pedido = ctrl_item_pedido.inserir_item_pedido()
+    elif opcao_inserir == 6:
+        novo_user = ctrl_user.inserir_user()
 
 def atualizar(opcao_atualizar:int=0):
 
@@ -144,5 +148,5 @@ def run():
             print("Opção incorreta.")
             exit(1)
 
-if __name__ == "__main__":
+if __name__ == "_main_":
     run()
