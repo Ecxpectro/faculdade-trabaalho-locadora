@@ -44,6 +44,30 @@ class Controller_MovieType:
             return None    
     
 
+    def delete_movie_type(self):
+        # Cria uma nova conexão com o banco que permite alteração
+        oracle = OracleQueries(can_write=True)
+        oracle.connect()
+
+        movie_type_id = int(input("Código do Gênero de filme que irá alterar: "))        
+
+        if not self.verify_movie_type(oracle, movie_type_id):            
+            df_movie_type = oracle.sqlToDataFrame(f"select MOVIE_TYPE_ID, MOVIE_TYPE_NAME from LABDATABASE.MOVIE_TYPE where MOVIE_TYPE_ID = {movie_type_id}")
+            
+            # Atualiza a tabela Movie para tirar a associação com o movie_type
+            oracle.write(f"update LABDATABASE.MOVIE set MOVIE_TYPE_ID = null where MOVIE_TYPE_ID = {movie_type_id}")            
+
+            oracle.write(f"delete from LABDATABASE.MOVIE_TYPE where MOVIE_TYPE_ID = {movie_type_id}")            
+            
+            deleted_movie_type = MovieType(df_movie_type.movie_type_id.values[0], df_movie_type.movie_type_name.values[0])
+            
+            print("Gênero de filme Removido com Sucesso!")
+            print(deleted_movie_type.to_string())
+        else:
+            print(f"O código {movie_type_id} não existe.")
+
+
+
     def verify_movie_type(self, oracle:OracleQueries, movie_type_id:int=None) -> bool:
 
         df_movie_type = oracle.sqlToDataFrame(f"select MOVIE_TYPE_ID, MOVIE_TYPE_NAME from LABDATABASE.MOVIE_TYPE where MOVIE_TYPE_ID = {movie_type_id}")

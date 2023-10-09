@@ -72,8 +72,8 @@ def excluir(opcao_excluir:int=0):
         relatorio.get_relatorio_produtos()
         ctrl_produto.excluir_produto()
     elif opcao_excluir == 2:                
-        relatorio.get_relatorio_clientes()
-        ctrl_cliente.excluir_cliente()
+        relatorio.get_movie_type_data()
+        ctrl_movie_type.delete_movie_type()
     elif opcao_excluir == 3:                
         relatorio.get_relatorio_fornecedores()
         ctrl_fornecedor.excluir_fornecedor()
