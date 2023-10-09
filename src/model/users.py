@@ -1,4 +1,5 @@
 class User:
+    ##
     def __init__(self, 
                  CPF:str=None, 
                  user_fullname:str=None,
