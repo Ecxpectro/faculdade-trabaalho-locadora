@@ -6,7 +6,7 @@ from controller.controller_cliente import Controller_Cliente
 from controller.controller_fornecedor import Controller_Fornecedor
 from controller.controller_pedido import Controller_Pedido
 from controller.controller_item_pedido import Controller_Item_Pedido
-
+from controller.controller_movie_type import Controller_MovieType
 tela_inicial = SplashScreen()
 relatorio = Relatorio()
 ctrl_produto = Controller_Produto()
@@ -14,6 +14,7 @@ ctrl_cliente = Controller_Cliente()
 ctrl_fornecedor = Controller_Fornecedor()
 ctrl_pedido = Controller_Pedido()
 ctrl_item_pedido = Controller_Item_Pedido()
+ctrl_movie_type = Controller_MovieType()
 
 def reports(opcao_relatorio:int=0):
 
@@ -35,7 +36,7 @@ def inserir(opcao_inserir:int=0):
     if opcao_inserir == 1:                               
         novo_produto = ctrl_produto.inserir_produto()
     elif opcao_inserir == 2:
-        novo_cliente = ctrl_cliente.inserir_cliente()
+        novo_movie_type= ctrl_movie_type.inserir_movie_type()
     elif opcao_inserir == 3:
         novo_fornecedor = ctrl_fornecedor.inserir_fornecedor()
     elif opcao_inserir == 4:

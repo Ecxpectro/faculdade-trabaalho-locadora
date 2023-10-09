@@ -18,7 +18,7 @@ MENU_RELATORIOS = """Relatórios
 
 MENU_ENTIDADES = """Entidades
 1 - PRODUTOS
-2 - CLIENTES
+2 - Gênero do filme
 3 - FORNECEDORES
 4 - PEDIDOS
 5 - ITENS DE PEDIDOS
