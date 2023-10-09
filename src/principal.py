@@ -148,5 +148,5 @@ def run():
             print("Opção incorreta.")
             exit(1)
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     run()
