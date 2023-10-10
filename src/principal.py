@@ -65,6 +65,9 @@ def atualizar(opcao_atualizar:int=0):
     elif opcao_atualizar == 5:
         relatorio.get_relatorio_itens_pedidos()
         item_pedido_atualizado = ctrl_item_pedido.atualizar_item_pedido()
+    elif opcao_atualizar == 6:
+        relatorio.get_user_data()
+        usuario_atualizado = ctrl_user.atualizar_user()
 
 def excluir(opcao_excluir:int=0):
 

@@ -28,6 +28,9 @@ class Relatorio:
 
         with open("sql/movie_type_data.sql") as f:
             self.query_movie_type_data = f.read()
+        
+        with open("sql/user_data.sql") as f:
+            self.query_user_data = f.read()
 
     def get_relatorio_pedidos(self):
         # Cria uma nova conexão com o banco que permite alteração
@@ -83,3 +86,13 @@ class Relatorio:
         
         print(oracle.sqlToDataFrame(self.query_movie_type_data))
         input("Pressione Enter para Sair do Relatório de Gênero de filmes")
+
+    def get_user_data(self):
+        oracle = OracleQueries()
+        oracle.connect()
+
+
+        print(oracle.sqlToDataFrame(self.query_user_data))
+        input("Pressione Enter para continuar")
+
+    
