@@ -72,7 +72,10 @@ def atualizar(opcao_atualizar:int=0):
         item_pedido_atualizado = ctrl_item_pedido.atualizar_item_pedido()
     elif opcao_atualizar == 6:
         relatorio.get_user_data()
-        usuario_atualizado = ctrl_user.atualizar_user()
+        usuario_atualizado = ctrl_user.update_user()
+    elif opcao_atualizar == 7:
+        relatorio.get_movie_data()
+        movie_atualizado = ctrl_movie.update_movie()
 
 def excluir(opcao_excluir:int=0):
 

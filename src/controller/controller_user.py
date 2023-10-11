@@ -32,7 +32,7 @@ class Controller_User:
 
 
     
-    def atualizar_user(self) -> User:
+    def update_user(self) -> User:
         oracle = OracleQueries(can_write=True)
         oracle.connect()
 
