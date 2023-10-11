@@ -8,6 +8,7 @@ from controller.controller_pedido import Controller_Pedido
 from controller.controller_item_pedido import Controller_Item_Pedido
 from controller.controller_movie_type import Controller_MovieType
 from controller.controller_user import Controller_User
+from controller.controller_movie import Controller_Movie
 tela_inicial = SplashScreen()
 relatorio = Relatorio()
 ctrl_produto = Controller_Produto()
@@ -17,6 +18,7 @@ ctrl_pedido = Controller_Pedido()
 ctrl_item_pedido = Controller_Item_Pedido()
 ctrl_movie_type = Controller_MovieType()
 ctrl_user = Controller_User()
+ctrl_movie = Controller_Movie()
 
 def reports(opcao_relatorio:int=0):
 
@@ -47,6 +49,9 @@ def inserir(opcao_inserir:int=0):
         novo_item_pedido = ctrl_item_pedido.inserir_item_pedido()
     elif opcao_inserir == 6:
         novo_user = ctrl_user.inserir_user()
+    elif opcao_inserir == 7:
+        relatorio.get_movie_type_data()
+        novo_movie = ctrl_movie.insert_movie()
 
 def atualizar(opcao_atualizar:int=0):
 

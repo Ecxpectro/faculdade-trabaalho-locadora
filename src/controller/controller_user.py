@@ -12,7 +12,7 @@ class Controller_User:
 
         cpf = input("CPF (Novo): ")
 
-        if self.verifica_existencia_user(oracle, cpf):
+        if self.verifica_existencia_user_byId(oracle, cpf):
             
             user_fullname = input("Nome (Novo): ")
             phone = input("phone (Novo): ")
@@ -20,9 +20,10 @@ class Controller_User:
             
             oracle.write(f"insert into LABDATABASE.users values (USER_ID_SEQ.NEXTVAL, '{user_fullname}', '{cpf}', '{phone}', '{user_email}' )")
             
-            df_user= oracle.sqlToDataFrame(f"select cpf, user_fullname, phone, user_email  from LABDATABASE.users where cpf = '{cpf}'")
-            novo_user = User(df_user.cpf.values[0], df_user.user_fullname.values[0], df_user.phone.values[0], df_user.user_email.values[0])
+            df_user= oracle.sqlToDataFrame(f"select user_id, cpf, user_fullname, phone, user_email  from LABDATABASE.users where cpf = '{cpf}'")
+            novo_user = User(df_user.user_id.values[0], df_user.cpf.values[0], df_user.user_fullname.values[0], df_user.phone.values[0], df_user.user_email.values[0])
           
+           
             print(novo_user.to_string())
             return novo_user
         else:
@@ -38,7 +39,7 @@ class Controller_User:
         update_user = int(input("Digite o id do usuário que deseja alterar"))
         
 
-        if update_user: ##concertar o método "verificar_existencia_user_byId que não funciona"
+        if not self.verifica_existencia_user_byId(oracle, update_user): 
           
            new_name = str(input("Digite um novo nome: "))
            new_phone = str(input("Digite um novo telefone: "))
@@ -66,5 +67,4 @@ class Controller_User:
 
     def verifica_existencia_user_byId(self, oracle:OracleQueries, user_id:int=None) -> bool:
         df_user= oracle.sqlToDataFrame(f"select user_id, user_fullname, cpf from LABDATABASE.users where user_id = {user_id}")
-        print(df_user)
         return df_user.empty

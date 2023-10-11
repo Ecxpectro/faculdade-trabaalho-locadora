@@ -4,6 +4,7 @@ MENU_PRINCIPAL = """Menu Principal
 3 - Atualizar Registros
 4 - Remover Registros
 5 - Sair
+6 - Realizar Venda
 """
 
 MENU_RELATORIOS = """Relatórios
@@ -23,6 +24,7 @@ MENU_ENTIDADES = """Entidades
 4 - PEDIDOS
 5 - ITENS DE PEDIDOS
 6 - Usuários
+7 - Movie
 """
 
 # Consulta de contagem de registros por tabela
