@@ -95,6 +95,8 @@ def excluir(opcao_excluir:int=0):
         relatorio.get_relatorio_itens_pedidos()
         ctrl_item_pedido.excluir_item_pedido()
 
+
+
 def run():
     print(tela_inicial.get_updated_screen())
     config.clear_console()
@@ -154,6 +156,10 @@ def run():
             config.clear_console()
             print("Obrigado por utilizar o nosso sistema.")
             exit(0)
+
+        elif opcao == 6:
+            print("teste")
+            
 
         else:
             print("Opção incorreta.")
