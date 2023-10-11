@@ -9,6 +9,7 @@ from controller.controller_item_pedido import Controller_Item_Pedido
 from controller.controller_movie_type import Controller_MovieType
 from controller.controller_user import Controller_User
 from controller.controller_movie import Controller_Movie
+from controller.controller_user_movie import Controller_User_movie
 tela_inicial = SplashScreen()
 relatorio = Relatorio()
 ctrl_produto = Controller_Produto()
@@ -19,6 +20,7 @@ ctrl_item_pedido = Controller_Item_Pedido()
 ctrl_movie_type = Controller_MovieType()
 ctrl_user = Controller_User()
 ctrl_movie = Controller_Movie()
+ctrl_user_movie = Controller_User_movie()
 
 def reports(opcao_relatorio:int=0):
 
@@ -159,7 +161,8 @@ def run():
 
         elif opcao == 6:
             print("teste")
-            
+            relatorio.get_relatorio_itens_pedidos()
+            ctrl_user_movie.insert_sale()
 
         else:
             print("Opção incorreta.")
