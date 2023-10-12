@@ -14,9 +14,9 @@ class Controller_User:
 
         if self.verifica_existencia_user_byId(oracle, cpf):
             
-            user_fullname = input("Nome (Novo): ")
-            phone = input("phone (Novo): ")
-            user_email = input("email    (Novo): ")
+            user_fullname = input("Digite o nome do usuário: ")
+            phone = input("Digite o telefone do usuário: ")
+            user_email = input("Digite o email do usuário: ")
             
             oracle.write(f"insert into LABDATABASE.users values (USER_ID_SEQ.NEXTVAL, '{user_fullname}', '{cpf}', '{phone}', '{user_email}' )")
             
@@ -31,7 +31,7 @@ class Controller_User:
             return None
 
 
-    
+
     def update_user(self) -> User:
         oracle = OracleQueries(can_write=True)
         oracle.connect()

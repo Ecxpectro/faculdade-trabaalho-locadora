@@ -25,6 +25,7 @@ MENU_ENTIDADES = """Entidades
 5 - ITENS DE PEDIDOS
 6 - Usuários
 7 - Movie
+8 - Venda
 """
 
 # Consulta de contagem de registros por tabela

@@ -55,8 +55,7 @@ def inserir(opcao_inserir:int=0):
         relatorio.get_movie_type_data()
         novo_movie = ctrl_movie.insert_movie()
     elif opcao_inserir == 8:
-        relatorio.get_movie_type_data()
-        novo_movie = ctrl_movie.insert_movie()
+        nova_venda = ctrl_user_movie.insert_sale()
 
 def atualizar(opcao_atualizar:int=0):
 
