@@ -38,4 +38,4 @@ class User_movie:
         return self.movie_price    
     
     def to_string(self) -> str:
-        return f"Venda realizada com exito: "
+        return f"ID: {self.get_user_movie_id}, "

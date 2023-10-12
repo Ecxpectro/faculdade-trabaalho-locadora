@@ -103,5 +103,4 @@ class Relatorio:
 
         print(oracle.sqlToDataFrame(self.query_movie_data))
         input("Pressione Enter para continuar")
-
     

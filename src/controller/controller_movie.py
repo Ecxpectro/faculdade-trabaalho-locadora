@@ -1,4 +1,5 @@
 from model.movie import Movie
+
 from conexion.oracle_queries import OracleQueries
 from reports.relatorios import Relatorio
 relatorio = Relatorio()
@@ -20,10 +21,10 @@ class Controller_Movie:
 
             oracle.write(f"insert into LABDATABASE.MOVIE values (MOVIE_ID_SEQ.NEXTVAL, {movieTypeId}, '{movieName}', '{movieDescription}', {moviePriece})")
             df_movie = oracle.sqlToDataFrame(f"select MOVIE_ID, MOVIE_TYPE_ID, movie_name, movie_description, movie_price  from LABDATABASE.MOVIE where MOVIE_NAME = '{movieName}'")
+            selectGenero = oracle.sqlToDataFrame(f"select movie_type_name from movie_type where movie_type_id = {movieTypeId}")
 
-            novo_movie_type = Movie(df_movie.movie_id.values[0], df_movie.movie_type_id.values[0], df_movie.movie_name.values[0], df_movie.movie_description.values[0], df_movie.movie_description.values[0])
+            novo_movie_type = Movie(df_movie.movie_id.values[0], df_movie.movie_type_id.values[0],selectGenero.movie_type_name.values[0], df_movie.movie_name.values[0], df_movie.movie_description.values[0], df_movie.movie_description.values[0])
             print(novo_movie_type.to_string()) 
-            i = input("mawd")
             return novo_movie_type
         else:
             print("O id inserido não existe")
@@ -47,8 +48,9 @@ class Controller_Movie:
 
                 oracle.write(f"update LABDATABASE.MOVIE set movie_type_id = {movie_type_id}, movie_name = '{movieName}', movie_description = '{movieDescription}', movie_price = '{moviePriece}' where movie_id = {movie_id}")
                 df_movie = oracle.sqlToDataFrame(f"select MOVIE_ID, MOVIE_TYPE_ID, movie_name, movie_description, movie_price  from LABDATABASE.MOVIE where MOVIE_NAME = '{movieName}'")
+                new_genero_name = oracle.sqlToDataFrame(f"select movie_type_name from movie_type where movie_type_id = {movie_type_id}")
 
-                novo_movie_type = Movie(df_movie.movie_id.values[0], df_movie.movie_type_id.values[0], df_movie.movie_name.values[0], df_movie.movie_description.values[0], df_movie.movie_description.values[0])
+                novo_movie_type = Movie(df_movie.movie_id.values[0], df_movie.movie_type_id.values[0],new_genero_name.movie_type_name.values[0] , df_movie.movie_name.values[0], df_movie.movie_description.values[0], df_movie.movie_description.values[0])
                 print(novo_movie_type.to_string()) 
                 return novo_movie_type
         else:

@@ -54,6 +54,9 @@ def inserir(opcao_inserir:int=0):
     elif opcao_inserir == 7:
         relatorio.get_movie_type_data()
         novo_movie = ctrl_movie.insert_movie()
+    elif opcao_inserir == 8:
+        relatorio.get_movie_type_data()
+        novo_movie = ctrl_movie.insert_movie()
 
 def atualizar(opcao_atualizar:int=0):
 
@@ -159,10 +162,6 @@ def run():
             print("Obrigado por utilizar o nosso sistema.")
             exit(0)
 
-        elif opcao == 6:
-            print("teste")
-            relatorio.get_relatorio_itens_pedidos()
-            ctrl_user_movie.insert_sale()
 
         else:
             print("Opção incorreta.")

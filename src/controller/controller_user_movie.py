@@ -24,6 +24,11 @@ class Controller_User_movie:
                 oracle.write(f"insert into LABDATABASE.user_movie values (USER_MOVIE_ID_SEQ.NEXTVAL, {user_id}, {movie_id}, {i})")
 
 
+
+                df_user_movie = oracle.sqlToDataFrame(f"select user_movie_id, user_id, movie_id, movie_price from LABDATABASE.user_movie where user_movie_id = '{movie_id}'")
+                novo_user_movie = User_movie(df_user_movie.user_movie_id.values[0], df_user_movie.user_id.values[0], df_user_movie.movie_id.values[0], df_user_movie.movie_price.values[0])           
+                print(novo_user_movie.to_string())
+                return novo_user_movie
            
             else:
                print("O id não existe")
