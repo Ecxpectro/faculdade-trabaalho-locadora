@@ -36,6 +36,7 @@ def reports(opcao_relatorio:int=0):
         relatorio.get_relatorio_fornecedores()
     elif opcao_relatorio == 6:
         relatorio.get_relatorio_itens_pedidos()
+        
 
 def inserir(opcao_inserir:int=0):
 

@@ -1,6 +1,6 @@
-select user_id,
-       phone,
-       user_fullname,
-       user_email
-    from LABDATABASE.users
+select u.user_id,
+       u.phone,
+       u.user_fullname,
+       u.user_email
+    from LABDATABASE.users u
 order by user_id

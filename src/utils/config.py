@@ -14,6 +14,7 @@ MENU_RELATORIOS = """Relatórios
 4 - Relatório de Clientes
 5 - Relatório de Fornecedores
 6 - Relatório de Itens de Pedidos
+7 - Relatório de Usuários
 0 - Sair
 """
 
