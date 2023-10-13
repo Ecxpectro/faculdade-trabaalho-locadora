@@ -75,7 +75,7 @@ def run():
             
             if opcao == 1: # Relatórios
                 print(config.MENU_RELATORIOS)
-                opcao_relatorio = int(input("Escolha uma opção [0-6]: "))
+                opcao_relatorio = int(input("Escolha uma opção [0-4]: "))
                 config.clear_console(1)
 
                 reports(opcao_relatorio)
@@ -83,7 +83,7 @@ def run():
                 config.clear_console(1)
 
             elif opcao == 2: # Inserir Novos Registros
-                print(config.MENU_ENTIDADES)
+                print(config.MENU_ENTIDADES_INSERT)
                 opcao_inserir = int(input("Escolha uma opção [1-4]: "))
                 config.clear_console(1)
 
@@ -94,7 +94,7 @@ def run():
                 config.clear_console()
 
             elif opcao == 3: # Atualizar Registros
-                print(config.MENU_ENTIDADES)
+                print(config.MENU_ENTIDADES_UPDATE)
                 opcao_atualizar = int(input("Escolha uma opção [1-3]: "))
                 config.clear_console(1)
 
@@ -103,7 +103,7 @@ def run():
                 config.clear_console()
 
             elif opcao == 4:
-                print(config.MENU_ENTIDADES)
+                print(config.MENU_ENTIDADES_DELETE)
                 opcao_excluir = int(input("Escolha uma opção [1]: "))
                 config.clear_console(1)
 

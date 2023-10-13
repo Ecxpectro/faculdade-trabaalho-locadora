@@ -4,7 +4,6 @@ MENU_PRINCIPAL = """Menu Principal
 3 - Atualizar Registros
 4 - Remover Registros
 5 - Sair
-6 - Realizar Venda
 """
 
 MENU_RELATORIOS = """Relatórios
@@ -15,11 +14,19 @@ MENU_RELATORIOS = """Relatórios
 0 - Sair
 """
 
-MENU_ENTIDADES = """Entidades
+MENU_ENTIDADES_INSERT = """Entidades
 1 - USUÁRIOS
 2 - GÊNERO DO FILME
 3 - FILME
 4 - VENDAS
+"""
+MENU_ENTIDADES_UPDATE = """Entidades
+1 - USUÁRIOS
+2 - GÊNERO DO FILME
+3 - FILME
+"""
+MENU_ENTIDADES_DELETE = """Entidades
+1 - GÊNERO DO FILME
 """
 
 # Consulta de contagem de registros por tabela

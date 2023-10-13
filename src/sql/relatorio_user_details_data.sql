@@ -6,7 +6,7 @@ SELECT U.user_id AS ID_usuario,
        UM.Qtd_Filmes_Comprados ,
        UM.Preco_Total_Gasto
 FROM LABDATABASE.USERS U
-INNER JOIN (
+LEFT JOIN (
     SELECT user_id, 
            COUNT(DISTINCT user_movie_id) AS Qtd_Filmes_Comprados,
            SUM(movie_total_price) AS Preco_Total_Gasto

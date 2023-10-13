@@ -36,26 +36,31 @@ class Controller_User:
         oracle = OracleQueries(can_write=True)
         oracle.connect()
 
-        update_user = int(input("Digite o id do usuário que deseja alterar"))
-        
+        try:
+            update_user = int(input("Digite o id do usuário que deseja alterar: "))
+            if not self.verifica_existencia_user_byId(oracle, update_user):
+                new_name = str(input("Digite um novo nome: "))
+                new_phone = str(input("Digite um novo telefone: "))
+                new_email = str(input("Digite um novo email: "))
+                new_cpf = str(input("Digite um novo CPF: "))
+                
+                oracle.write(f"update LABDATABASE.users set phone = '{new_phone}', user_fullname = '{new_name}', user_email = '{new_email}', cpf = '{new_cpf}' where user_id = {update_user}")
 
-        if not self.verifica_existencia_user_byId(oracle, update_user): 
-          
-           new_name = str(input("Digite um novo nome: "))
-           new_phone = str(input("Digite um novo telefone: "))
-           new_email = str(input("Digite um novo email: "))
-           new_cpf = str(input("Digiteum novo CPF: "))
+                df_user = oracle.sqlToDataFrame(f"select cpf, user_fullname, phone, user_email from LABDATABASE.users where cpf = '{new_cpf}'")
+                novo_user = User(df_user.cpf.values[0], df_user.user_fullname.values[0], df_user.phone.values[0], df_user.user_email.values[0])
 
-           oracle.write(f"update LABDATABASE.users set phone = '{new_phone}', user_fullname = '{new_name}', user_email = '{new_email}', cpf = '{new_cpf}'  where user_id = {update_user}")
+                print(novo_user.to_string())
+                return novo_user
+            else:
+                print("O id não foi encontrado")
+                return None
 
-           df_user= oracle.sqlToDataFrame(f"select cpf, user_fullname, phone, user_email  from LABDATABASE.users where cpf = '{new_cpf}'")
-           novo_user = User(df_user.cpf.values[0], df_user.user_fullname.values[0], df_user.phone.values[0], df_user.user_email.values[0])
+        except ValueError:
+            print("Entrada inválida. Certifique-se de inserir um número inteiro para o ID do usuário.")
+            return None
 
-           print(novo_user.to_string())
-           return novo_user
-    
-        else:
-            print(f"O id não foi encontrado")
+        except Exception as e:
+            print(f"Ocorreu um erro: {e}")
             return None
 
     
