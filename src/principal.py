@@ -29,13 +29,10 @@ def reports(opcao_relatorio:int=0):
     elif opcao_relatorio == 2:
         relatorio.get_movie_type_data()
     elif opcao_relatorio == 3:
-        relatorio.get_relatorio_produtos()
+        relatorio.get_movie_data()
     elif opcao_relatorio == 4:
-        relatorio.get_relatorio_clientes()
-    elif opcao_relatorio == 5:
-        relatorio.get_relatorio_fornecedores()
-    elif opcao_relatorio == 6:
-        relatorio.get_relatorio_itens_pedidos()
+        relatorio.get_sales_data()
+
         
 
 def inserir(opcao_inserir:int=0):

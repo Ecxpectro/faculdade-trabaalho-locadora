@@ -10,11 +10,8 @@ MENU_PRINCIPAL = """Menu Principal
 MENU_RELATORIOS = """Relatórios
 1 - Relatório de Usuários
 2 - Relatório de Gênero de filmes
-3 - Relatório de Produtos
-4 - Relatório de Clientes
-5 - Relatório de Fornecedores
-6 - Relatório de Itens de Pedidos
-7 - Relatório de Usuários
+3 - Relatório de Filmes
+4 - Relatório de Vendas
 0 - Sair
 """
 

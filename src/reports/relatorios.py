@@ -37,6 +37,9 @@ class Relatorio:
         
         with open("sql/movie_data.sql") as f:
             self.query_movie_data = f.read()
+        
+        with open("sql/sales_data.sql") as f:
+            self.query_sales_data = f.read()
 
     def get_relatorio_pedidos(self):
         # Cria uma nova conexão com o banco que permite alteração
@@ -112,4 +115,11 @@ class Relatorio:
         oracle.connect()
 
         print(oracle.sqlToDataFrame(self.query_user_details_data))
+        input("Pressione Enter para continuar")
+    
+    def get_sales_data(self):
+        oracle = OracleQueries()
+        oracle.connect()
+
+        print(oracle.sqlToDataFrame(self.query_sales_data))
         input("Pressione Enter para continuar")
