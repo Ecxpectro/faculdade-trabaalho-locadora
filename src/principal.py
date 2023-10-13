@@ -41,65 +41,39 @@ def reports(opcao_relatorio:int=0):
 def inserir(opcao_inserir:int=0):
 
     if opcao_inserir == 1:                               
-        novo_produto = ctrl_produto.inserir_produto()
+        novo_user = ctrl_user.inserir_user()
     elif opcao_inserir == 2:
         novo_movie_type= ctrl_movie_type.insert_movie_type()
     elif opcao_inserir == 3:
-        novo_fornecedor = ctrl_fornecedor.inserir_fornecedor()
-    elif opcao_inserir == 4:
-        novo_pedido = ctrl_pedido.inserir_pedido()
-    elif opcao_inserir == 5:
-        novo_item_pedido = ctrl_item_pedido.inserir_item_pedido()
-    elif opcao_inserir == 6:
-        novo_user = ctrl_user.inserir_user()
-    elif opcao_inserir == 7:
         relatorio.get_movie_type_data()
         novo_movie = ctrl_movie.insert_movie()
-    elif opcao_inserir == 8:
+    elif opcao_inserir == 4:
         nova_venda = ctrl_user_movie.insert_sale()
+
+
+        
 
 def atualizar(opcao_atualizar:int=0):
 
     if opcao_atualizar == 1:
-        relatorio.get_relatorio_produtos()
-        produto_atualizado = ctrl_produto.atualizar_produto()
+        relatorio.get_user_data()
+        usuario_atualizado = ctrl_user.update_user()
     elif opcao_atualizar == 2:
         relatorio.get_movie_type_data()
         cliente_atualizado = ctrl_movie_type.update_movie_type()
     elif opcao_atualizar == 3:
-        relatorio.get_relatorio_fornecedores()
-        fornecedor_atualizado = ctrl_fornecedor.atualizar_fornecedor()
-    elif opcao_atualizar == 4:
-        relatorio.get_relatorio_pedidos()
-        pedido_atualizado = ctrl_pedido.atualizar_pedido()
-    elif opcao_atualizar == 5:
-        relatorio.get_relatorio_itens_pedidos()
-        item_pedido_atualizado = ctrl_item_pedido.atualizar_item_pedido()
-    elif opcao_atualizar == 6:
-        relatorio.get_user_data()
-        usuario_atualizado = ctrl_user.update_user()
-    elif opcao_atualizar == 7:
         relatorio.get_movie_data()
         movie_atualizado = ctrl_movie.update_movie()
+
+ 
 
 def excluir(opcao_excluir:int=0):
 
     if opcao_excluir == 1:
-        relatorio.get_relatorio_produtos()
-        ctrl_produto.excluir_produto()
-    elif opcao_excluir == 2:                
         relatorio.get_movie_type_data()
         ctrl_movie_type.delete_movie_type()
-    elif opcao_excluir == 3:                
-        relatorio.get_relatorio_fornecedores()
-        ctrl_fornecedor.excluir_fornecedor()
-    elif opcao_excluir == 4:                
-        relatorio.get_relatorio_pedidos()
-        ctrl_pedido.excluir_pedido()
-    elif opcao_excluir == 5:
-        relatorio.get_relatorio_itens_pedidos()
-        ctrl_item_pedido.excluir_item_pedido()
-
+            
+       
 
 
 def run():
@@ -107,65 +81,68 @@ def run():
     config.clear_console()
 
     while True:
-        print(config.MENU_PRINCIPAL)
-        opcao = int(input("Escolha uma opção [1-5]: "))
-        config.clear_console(1)
-        
-        if opcao == 1: # Relatórios
+        try:
+            print(config.MENU_PRINCIPAL)
+            opcao = int(input("Escolha uma opção [1-5]: "))
+            config.clear_console(1)
             
-            print(config.MENU_RELATORIOS)
-            opcao_relatorio = int(input("Escolha uma opção [0-6]: "))
-            config.clear_console(1)
+            if opcao == 1: # Relatórios
+                
+                print(config.MENU_RELATORIOS)
+                opcao_relatorio = int(input("Escolha uma opção [0-6]: "))
+                config.clear_console(1)
 
-            reports(opcao_relatorio)
+                reports(opcao_relatorio)
 
-            config.clear_console(1)
+                config.clear_console(1)
 
-        elif opcao == 2: # Inserir Novos Registros
-            
-            print(config.MENU_ENTIDADES)
-            opcao_inserir = int(input("Escolha uma opção [1-5]: "))
-            config.clear_console(1)
+            elif opcao == 2: # Inserir Novos Registros
+                
+                print(config.MENU_ENTIDADES)
+                opcao_inserir = int(input("Escolha uma opção [1-4]: "))
+                config.clear_console(1)
 
-            inserir(opcao_inserir=opcao_inserir)
+                inserir(opcao_inserir=opcao_inserir)
 
-            config.clear_console()
-            print(tela_inicial.get_updated_screen())
-            config.clear_console()
+                config.clear_console()
+                print(tela_inicial.get_updated_screen())
+                config.clear_console()
 
-        elif opcao == 3: # Atualizar Registros
+            elif opcao == 3: # Atualizar Registros
 
-            print(config.MENU_ENTIDADES)
-            opcao_atualizar = int(input("Escolha uma opção [1-5]: "))
-            config.clear_console(1)
+                print(config.MENU_ENTIDADES)
+                opcao_atualizar = int(input("Escolha uma opção [1-3]: "))
+                config.clear_console(1)
 
-            atualizar(opcao_atualizar=opcao_atualizar)
+                atualizar(opcao_atualizar=opcao_atualizar)
 
-            config.clear_console()
+                config.clear_console()
 
-        elif opcao == 4:
+            elif opcao == 4:
 
-            print(config.MENU_ENTIDADES)
-            opcao_excluir = int(input("Escolha uma opção [1-5]: "))
-            config.clear_console(1)
+                print(config.MENU_ENTIDADES)
+                opcao_excluir = int(input("Escolha uma opção [1]: "))
+                config.clear_console(1)
 
-            excluir(opcao_excluir=opcao_excluir)
+                excluir(opcao_excluir=opcao_excluir)
 
-            config.clear_console()
-            print(tela_inicial.get_updated_screen())
-            config.clear_console()
+                config.clear_console()
+                print(tela_inicial.get_updated_screen())
+                config.clear_console()
 
-        elif opcao == 5:
+            elif opcao == 5:
 
-            print(tela_inicial.get_updated_screen())
-            config.clear_console()
-            print("Obrigado por utilizar o nosso sistema.")
-            exit(0)
+                print(tela_inicial.get_updated_screen())
+                config.clear_console()
+                print("Obrigado por utilizar o nosso sistema.")
+                exit(0)
 
 
-        else:
-            print("Opção incorreta.")
-            exit(1)
+            else:
+                print("Opção incorreta.")
+                exit(1)
+        except:
+            print("Opção ou caracter inválido, por favor selecionar novamente.")
 
 if __name__ == "__main__":
     run()
