@@ -1,22 +1,12 @@
 from utils import config
 from utils.splash_screen import SplashScreen
 from reports.relatorios import Relatorio
-from controller.controller_produto import Controller_Produto
-from controller.controller_cliente import Controller_Cliente
-from controller.controller_fornecedor import Controller_Fornecedor
-from controller.controller_pedido import Controller_Pedido
-from controller.controller_item_pedido import Controller_Item_Pedido
 from controller.controller_movie_type import Controller_MovieType
 from controller.controller_user import Controller_User
 from controller.controller_movie import Controller_Movie
 from controller.controller_user_movie import Controller_User_movie
 tela_inicial = SplashScreen()
 relatorio = Relatorio()
-ctrl_produto = Controller_Produto()
-ctrl_cliente = Controller_Cliente()
-ctrl_fornecedor = Controller_Fornecedor()
-ctrl_pedido = Controller_Pedido()
-ctrl_item_pedido = Controller_Item_Pedido()
 ctrl_movie_type = Controller_MovieType()
 ctrl_user = Controller_User()
 ctrl_movie = Controller_Movie()
