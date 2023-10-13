@@ -113,4 +113,3 @@ class Relatorio:
 
         print(oracle.sqlToDataFrame(self.query_user_details_data))
         input("Pressione Enter para continuar")
-    

@@ -27,7 +27,7 @@ def reports(opcao_relatorio:int=0):
     if opcao_relatorio == 1:
         relatorio.get_relatorio_user()          
     elif opcao_relatorio == 2:
-        relatorio.get_relatorio_pedidos()
+        relatorio.get_movie_type_data()
     elif opcao_relatorio == 3:
         relatorio.get_relatorio_produtos()
     elif opcao_relatorio == 4:
