@@ -25,7 +25,7 @@ ctrl_user_movie = Controller_User_movie()
 def reports(opcao_relatorio:int=0):
 
     if opcao_relatorio == 1:
-        relatorio.get_relatorio_pedidos_por_fornecedor()            
+        relatorio.get_relatorio_user()          
     elif opcao_relatorio == 2:
         relatorio.get_relatorio_pedidos()
     elif opcao_relatorio == 3:
@@ -87,7 +87,6 @@ def run():
             config.clear_console(1)
             
             if opcao == 1: # Relatórios
-                
                 print(config.MENU_RELATORIOS)
                 opcao_relatorio = int(input("Escolha uma opção [0-6]: "))
                 config.clear_console(1)
@@ -97,7 +96,6 @@ def run():
                 config.clear_console(1)
 
             elif opcao == 2: # Inserir Novos Registros
-                
                 print(config.MENU_ENTIDADES)
                 opcao_inserir = int(input("Escolha uma opção [1-4]: "))
                 config.clear_console(1)
@@ -109,7 +107,6 @@ def run():
                 config.clear_console()
 
             elif opcao == 3: # Atualizar Registros
-
                 print(config.MENU_ENTIDADES)
                 opcao_atualizar = int(input("Escolha uma opção [1-3]: "))
                 config.clear_console(1)
@@ -119,7 +116,6 @@ def run():
                 config.clear_console()
 
             elif opcao == 4:
-
                 print(config.MENU_ENTIDADES)
                 opcao_excluir = int(input("Escolha uma opção [1]: "))
                 config.clear_console(1)
@@ -131,18 +127,17 @@ def run():
                 config.clear_console()
 
             elif opcao == 5:
-
                 print(tela_inicial.get_updated_screen())
                 config.clear_console()
                 print("Obrigado por utilizar o nosso sistema.")
                 exit(0)
 
-
             else:
-                print("Opção incorreta.")
-                exit(1)
-        except:
-            print("Opção ou caracter inválido, por favor selecionar novamente.")
+                print("Opção incorreta. Por favor, escolha uma opção válida.")
+
+        except ValueError:
+            print("Entrada inválida. Por favor, insira um número inteiro.")
+
 
 if __name__ == "__main__":
     run()

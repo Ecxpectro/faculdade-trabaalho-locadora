@@ -8,8 +8,8 @@ MENU_PRINCIPAL = """Menu Principal
 """
 
 MENU_RELATORIOS = """Relatórios
-1 - Relatório de Pedidos por Fornecedores
-2 - Relatório de Pedidos
+1 - Relatório de Usuários
+2 - Relatório de Gênero de filmes
 3 - Relatório de Produtos
 4 - Relatório de Clientes
 5 - Relatório de Fornecedores
@@ -19,14 +19,10 @@ MENU_RELATORIOS = """Relatórios
 """
 
 MENU_ENTIDADES = """Entidades
-1 - PRODUTOS
-2 - Gênero do filme
-3 - FORNECEDORES
-4 - PEDIDOS
-5 - ITENS DE PEDIDOS
-6 - Usuários
-7 - Movie
-8 - Venda
+1 - USUÁRIOS
+2 - GÊNERO DO FILME
+3 - FILME
+4 - VENDAS
 """
 
 # Consulta de contagem de registros por tabela

@@ -10,6 +10,9 @@ class Relatorio:
         with open("sql/relatorio_pedidos_por_fornecedor.sql") as f:
             self.query_relatorio_pedidos_por_fornecedor = f.read()
 
+        with open("sql/relatorio_user_details_data.sql") as f:
+            self.query_user_details_data = f.read()
+
         # Abre o arquivo com a consulta e associa a um atributo da classe
         with open("sql/relatorio_produtos.sql") as f:
             self.query_relatorio_produtos = f.read()
@@ -102,5 +105,12 @@ class Relatorio:
         oracle.connect()
 
         print(oracle.sqlToDataFrame(self.query_movie_data))
+        input("Pressione Enter para continuar")
+
+    def get_relatorio_user(self):
+        oracle = OracleQueries()
+        oracle.connect()
+
+        print(oracle.sqlToDataFrame(self.query_user_details_data))
         input("Pressione Enter para continuar")
     
