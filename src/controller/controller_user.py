@@ -12,7 +12,7 @@ class Controller_User:
 
         cpf = input("CPF (Novo): ")
 
-        if self.verifica_existencia_user_byId(oracle, cpf):
+        if self.verify_user_existence_by_cpf(oracle, cpf):
             
             user_fullname = input("Digite o nome do usuário: ")
             phone = input("Digite o telefone do usuário: ")
@@ -65,7 +65,7 @@ class Controller_User:
 
     
 
-    def verifica_existencia_user(self, oracle:OracleQueries, cpf:str=None) -> bool:
+    def verify_user_existence_by_cpf(self, oracle:OracleQueries, cpf:str=None) -> bool:
         df_user= oracle.sqlToDataFrame(f"select user_fullname, cpf from LABDATABASE.users where cpf = {cpf}")
         return df_user.empty
     

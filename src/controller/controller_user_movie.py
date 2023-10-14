@@ -24,12 +24,11 @@ class Controller_User_movie:
 
                 if not self.verifica_existencia_movie(oracle, movie_id):
                     df_movie = oracle.sqlToDataFrame(f"select movie_price, movie_name from LABDATABASE.MOVIE where movie_id = {movie_id}")
-                    df_user = oracle.sqlToDataFrame(f"select user_id, user_fullname from LABDATABASE.users where user_id = {user_id}")
-                    df_user_movie = oracle.sqlToDataFrame(f"select user_movie_id, user_id, movie_id from LABDATABASE.user_movie where user_movie_id = '{movie_id}'")
-
+                  
                     oracle.write(f"insert into LABDATABASE.user_movie values (USER_MOVIE_ID_SEQ.NEXTVAL, {user_id}, {movie_id}, {df_movie.movie_price.values[0]})")
-
-                    novo_user_movie = User_movie(df_user_movie.user_movie_id.values[0], df_user_movie.user_id.values[0], df_user_movie.movie_id.values[0], df_movie.movie_price.values[0], df_user.user_fullname.values[0], df_movie.movie_name.values[0])
+                    df_user_movie = oracle.sqlToDataFrame(f"SELECT user_movie_id, movie_id, user_fullname, user_id FROM (SELECT um.user_movie_id, um.movie_id, u.user_fullname, um.user_id, ROW_NUMBER() OVER (ORDER BY um.user_movie_id DESC) AS rn FROM labdatabase.user_movie um INNER JOIN labdatabase.users u ON u.user_id = um.user_id WHERE um.user_id = {user_id} AND um.movie_id = {movie_id}) WHERE rn = 1")
+                    
+                    novo_user_movie = User_movie(df_user_movie.user_movie_id.values[0], df_user_movie.user_id.values[0], df_user_movie.movie_id.values[0], df_movie.movie_price.values[0], df_user_movie.user_fullname.values[0], df_movie.movie_name.values[0])
                     print(novo_user_movie.to_string())
                     return novo_user_movie
 
