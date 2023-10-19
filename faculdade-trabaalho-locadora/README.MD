@@ -18,7 +18,7 @@ Para que possa testar as conexões com o banco de dados Oracle e o módulo Conex
 ```
 
 ## Organização
-- [diagrams](diagrams): Nesse diretório está o [diagrama relacional](diagrams/DIAGRAMA_RELACIONAL_LOCADORA.pdf) (lógico) do sistema.
+- [diagrams](diagrams): Nesse diretório está o [diagrama relacional e o relatório](diagrams/DIAGRAMA_RELACIONAL_LOCADORA.pdf) (lógico) do sistema.
     * O sistema possui quatro entidades: USERS, MOVIE_TYPE, MOVIE E USER_MOVIE
 - [sql](sql): Nesse diretório estão os scripts para criação das tabelas e inserção de dados fictícios para testes do sistema
     * Certifique-se de que o usuário do banco possui todos os privilégios antes de executar os scripts de criação, caso ocorra erro, execute o comando a seguir com o superusuário via SQL Developer: `GRANT ALL PRIVILEGES TO LABDATABASE;`
