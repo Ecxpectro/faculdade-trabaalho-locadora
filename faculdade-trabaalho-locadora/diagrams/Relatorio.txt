@@ -1,0 +1,9 @@
+No desenvolvimento do trabalho, o grupo responsável pelo sistema se reuniu e distribuiu tarefas diferentes para cada um dos integrantes, com o objetivo de otimizar ao máximo o tempo estipulado pelo professor, a fim de possibilitar uma entrega rápida do projeto. As tarefas foram distribuídas da seguinte forma:
+
+Henrique e Kevin: Foram encarregados da modelagem do banco de dados, o que incluiu a definição da estrutura do banco, tabelas e relacionamentos.
+
+Ana Carolinha e Ludovico: Desempenharam um papel fundamental em manter o grupo engajado, supervisionando prazos e realizando ajustes no sistema conforme necessário.
+
+Guilherme, Rodrigo, Henrique, Ana Carolina, Kevin e Ludovico: Todos os membros do grupo contribuíram de maneira ativa para o desenvolvimento do código do sistema.
+
+Guilherme e Henrique: Foram responsáveis pelo controle de versão do código no GitHub, utilizando ferramentas de controle de versão, como o Git, para gerenciar as alterações no código e garantir que todos trabalhassem com a versão mais atualizada.
